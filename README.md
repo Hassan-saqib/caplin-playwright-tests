@@ -13,9 +13,18 @@ Automated testing solution for the London Stock Exchange website (https://www.lo
 
 - **Framework**: Playwright with TypeScript
 - **Language**: TypeScript
-- **Pattern**: Page Object Model (POM)
 - **Test Runner**: Playwright Test
 - **Assertions**: Playwright built-in assertions
+- **Pattern**: Page Object Model (POM)- Approach - Lazy-Loaded Locators Using Getters
+
+For this project, I have implemented using getter methods in the Page Object Model, which provides several advantages:
+
+- **Performance Optimization**: Locators are only evaluated when accessed, reducing initial page load time
+- **Dynamic Element Handling**: Elements are found fresh each time, automatically handling DOM changes and re-renders
+- **Memory Efficiency**: No unnecessary DOM queries are performed until the element is actually needed
+- **Stale Element Prevention**: Eliminates stale element reference errors common with traditional stored locators
+- **Cleaner Syntax**: Getter methods provide intuitive property-like access (`this.submitButton` vs `this.getSubmitButton()`)
+- **Framework Alignment**: Follows Playwright's recommended best practices for reliable element interaction
 
 ## 📁 Project Structure
 
