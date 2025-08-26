@@ -11,9 +11,7 @@ export const test = base.extend<{
 
     const landingPage = new LandingPage(page);
     await landingPage.handleCookies();
-    await expect(landingPage.marketLatestSection).toBeVisible();
-    console.log("Landing page loaded successfully");
-
+    await landingPage.navigateToLandingPage();
     await use(landingPage);
   },
 

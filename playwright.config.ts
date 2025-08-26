@@ -13,6 +13,8 @@ import { defineConfig, devices } from "@playwright/test";
  */
 export default defineConfig({
   testDir: "./e2e",
+  /* Set test timeout to 40 seconds */
+  timeout: 40000,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -33,9 +35,6 @@ export default defineConfig({
 
     /* Take screenshots on failure */
     screenshot: "only-on-failure",
-
-    /* Set action timeout to 40 seconds */
-    actionTimeout: 40000,
   },
 
   /* Configure projects for major browsers */

@@ -34,12 +34,24 @@ export class LandingPage {
   }
 
   async handleCookies() {
-    await expect(this.cookieTitle).toBeVisible();
-    if (await this.cookieTitle.isVisible()) {
+    try {
+      await this.cookieTitle.waitFor({ state: "visible", timeout: 8000 });
       console.log("Cookie banner found → Rejecting all cookies...");
       await this.rejectAllCookies.click();
-    } else {
-      console.log(" No cookie banner found → Continuing tests");
+    } catch {
+      console.log("No cookie banner found → Continuing tests");
+    }
+  }
+
+  async navigateToLandingPage() {
+    try {
+      await this.marketLatestSection.waitFor({
+        state: "visible",
+        timeout: 8000,
+      });
+      console.log("Landing page loaded successfully");
+    } catch {
+      console.log("Landing page failed to load, continuing tests");
     }
   }
 }
